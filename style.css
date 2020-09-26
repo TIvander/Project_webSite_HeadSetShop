@@ -1,0 +1,234 @@
+:root {
+    --color_grid: rgb(116, 114, 114)
+}
+    
+body {
+    background-color: #000000e7;
+    margin: 0px;
+    color: white;
+}
+
+#header_img {
+    background-image: url("https://cdn.hipwallpaper.com/i/88/28/BGdE3s.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    
+}
+.play_list {
+    background-image: url("https://i2.wp.com/wallur.com/wp-content/uploads/2016/12/headphones-background-4.jpg?fit=1920%2C1080");
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+}
+.nav_menu {
+    margin-top: 30px ;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+}
+.link_menu {
+    color: azure;
+    font-weight: bold;
+    margin-top: 30px ;
+    font-size: 18px;
+
+}
+
+#titulo_home {
+    color: azure;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.container {
+    text-align: center;
+   
+}
+.p_home {
+    font-size: 12px;
+    color: azure;
+}
+hr {
+    border-width: 1px;
+    width: 70%;
+    border-color: grey;
+}
+.img_card {
+    height: 200px;
+    width: 100% ;
+}
+
+.card_home {
+    opacity: 0;
+    height: 400px;
+    margin: 65px auto;
+    animation-name: fade_img;
+    animation-delay: 500ms;
+    animation-duration: 1.1s;
+    animation-fill-mode: forwards;
+}
+.card_body image {
+    height: 400px;
+    background-size: contain;  
+    
+}
+.card_body{
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   font-weight: bold;
+   color: black;
+}
+.return {
+    animation-name: go_home;
+    animation-duration: 1s;
+    animation-delay: 500ms;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fade_img {
+    from {
+        
+        transform: translateY(200px);
+        opacity: 0;
+
+}
+ to {
+    opacity: 1;
+ }
+
+}
+@keyframes go_home {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.containerPlayList {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    text-align: center;
+    max-width: 43rem;
+    min-width: 34rem;
+    margin: 0 auto;
+}
+
+.containerPlayList .titleColumns {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 45px;
+    color: rgb(113, 6, 122);
+    cursor: default;
+    border: 1px solid var(--color_grid);
+    
+    
+}
+
+.musicList {
+    margin-top: 20px;
+    color: whitesmoke;
+    line-height: 35px;
+    cursor: pointer;
+    border: 1px solid var(--color_grid);
+   
+   
+}
+
+
+.musicList:hover {
+    text-shadow: cyan 1px 1px 2px;
+}
+
+
+
+.compositorList {
+    margin-top: 20px;
+    color: whitesmoke;
+    line-height: 35px;
+    cursor:default;
+    text-decoration: underline darkgrey;
+    border: 1px solid var(--color_grid);
+    
+    
+    
+}
+.musicModal {
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.808);
+    opacity: 0;
+    visibility: hidden;
+}
+.musicModal.active{
+    opacity: 1;
+    visibility: visible;
+}
+.backgroundImg {
+    
+    text-align: center;
+}
+.playMusic {
+    text-align: center;
+    position: relative;
+    top: -284px;
+}
+.closeModal {
+    background-color: inherit;
+    border-radius: 20%;
+    line-height: 35px;
+    font-size: 20px;
+    color: white;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+.closeModal:hover {
+    background-color: rgb(32, 139, 189);
+    transition: ease-out 200ms;
+    color: rgb(22, 4, 4);
+   
+}
+
+#h_img {
+    width: 100%;
+    height: 350px;
+    background-image: url("https://www.churchmotiongraphics.com/wp-content/uploads/2020/03/Backgrounds-1.jpg");
+    background-size: cover;
+    background-position: center;
+}
+#menu {
+    text-align: center;
+    margin-top: 30px ;
+}
+.menu_link {
+font-size: 18px;
+font-weight: bold;
+color: white;
+text-decoration: none;
+}
+.menu_link a {
+    color: white;
+}
+.menu_link a:hover{
+    text-decoration: none;
+    color: #007bff;
+    
+}
+#texo_contato {
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px;
+    width: 50%;
+}
+#btn_edit {
+    margin: 0 auto;
+    width:40%;
+}
