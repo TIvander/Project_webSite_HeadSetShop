@@ -1,7 +1,7 @@
 ### name:Head Set Shop
 
 
-### about: São 3 página utilizadas, pagina home, playlist e contato.
+#### about: Loja de headsets com página de contato e playlist de músicas.
 
 
       Home : contém a apresentação do site com imagens de exemplos sobre headsets, foi utilizado animações nos menus e imagens;
