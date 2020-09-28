@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" ng-app="playListModule">
 
 <head>
   <meta charset="UTF-8">
@@ -16,13 +16,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
   <link rel="stylesheet" href="style.css" type="text/css" media="screen">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Play-List</title>
 </head>
 
-<body>
+<body ng-controller="playListController">
   <div class="play_list"></div>
   <ul class="nav justify-content-center nav_menu return">
     <li class="nav-item">
@@ -32,71 +33,41 @@
       <a class="nav-link active link_menu" href="contato.html">Contato</a>
     </li>
   </ul>
-  <div class="containerPlayList">
-    <div class="titleColumns">Music</div>
-    <div class="titleColumns">Compositor</div>
-    <div class="titleColumns">Duration</div>
-    <div class="list">
-      <div class="musicList" id="https://previews.customer.envatousercontent.com/files/304393014/preview.mp3"> CyberPunk
-        Eletronic </div>
-      <div class="musicList" id="https://previews.customer.envatousercontent.com/files/244559989/preview.mp3"> Arcade
-        Trap </div>
-      <div class="musicList" id="https://previews.customer.envatousercontent.com/files/303003777/preview.mp3"> Summer
-        Chill Beat </div>
-      <div class="musicList" id="https://previews.customer.envatousercontent.com/files/132855243/preview.mp3"> Grand
-        Trap Auto </div>
-      <div class="musicList" id="https://previews.customer.envatousercontent.com/files/304426856/preview.mp3"> Sport
-        Action Rock Electro </div>
-      <div class="musicList" id="https://previews.customer.envatousercontent.com/files/224590107/preview.mp3"> Extreme
-        Rock </div>
-      <div class="musicList" id="https://previews.customer.envatousercontent.com/files/303664662/preview.mp3">
-        Energizing Summer Beat </div>
-
-    </div>
-
-    <div class="list">
-      <div class="compositorList"> Action Eletronic Rock </div>
-      <div class="compositorList"> Audio Jungle </div>
-      <div class="compositorList"> AMB Crew </div>
-      <div class="compositorList"> Steeves mix </div>
-      <div class="compositorList"> Tech Logo I. </div>
-      <div class="compositorList"> Trap SL </div>
-      <div class="compositorList"> 5 Version </div>
-    </div>
-
-    <div class="list">
-      <div class="compositorList"> 2:16 min </div>
-      <div class="compositorList"> 1:37 min </div>
-      <div class="compositorList"> 3:25 min </div>
-      <div class="compositorList"> 4:10 min </div>
-      <div class="compositorList"> 5:49 min </div>
-      <div class="compositorList"> 4:45 min </div>
-      <div class="compositorList"> 2:37 min </div>
-    </div>
+      <div class="container ">
+        <table class="table  table-dark col-md-12">
+          <thead>
+            <tr class="titleColumns">             
+              <th>Music</th>
+              <th>Compositor</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="lineHover"ng-repeat="song in playList">
+              <td>{{song.nome.toUpperCase()}}</td>
+              <td>{{song.compositor}}</td>
+              <td>{{song.duration}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+  <script type="text/javascript">
+      angular.module('playListModule', [])
+      .controller("playListController", function($scope){
+        $scope.playList = [
+          {nome:"CyberPunk Eletronic", id:"https://previews.customer.envatousercontent.com/files/304393014/preview.mp3", compositor:"Action Eletronic Rock", duration:"2:16 min"},
+          {nome:"ArcadeTrap ", id:"https://previews.customer.envatousercontent.com/files/244559989/preview.mp3", compositor:"Audio Jungle", duration:"1:37"},
+          {nome:"Summer Chill Beat", id:"https://previews.customer.envatousercontent.com/files/303003777/preview.mp3", compositor:"AMB Crew", duration:"3:25"},
+          {nome:"Grand Trap Auto", id:"https://previews.customer.envatousercontent.com/files/132855243/preview.mp3", compositor:"Steeves mix", duration:"4:10 min"},
+          {nome:"SportAction Rock Electro", id:"https://previews.customer.envatousercontent.com/files/304426856/preview.mp3", compositor:"Tech Logo I.", duration:"5:49 min"},
+          {nome:"Trap SL", id:"https://previews.customer.envatousercontent.com/files/224590107/preview.mp3", compositor:" Extreme Rock", duration:"4:45 min"},
+          {nome:"5 Version", id:"https://previews.customer.envatousercontent.com/files/303664662/preview.mp3", compositor:"Action Eletronic Rock", duration:"2:37 min"}       
+        ]
 
 
-  </div>
-
-  <hr>
-  <div class="musicModal">
-
-    <div class="backgroundImg">
-      <img src="https://www.mobilebeat.com/wp-content/uploads/2016/07/Background-Music-768x576.jpg" alt="">
-    </div>
-    <div class="playMusic">
-      <audio autoplay controls src="">
-      </audio>
-      <form action="">
-        <span><button class="closeModal">Close</button></span>
-      </form>
-
-
-    </div>
-
-  </div>
-
-
-
+      })
+  </script>
   <script>
     const musicLists = document.querySelectorAll(".musicList")
     const closeModal = document.querySelector('.closeModal')
@@ -113,8 +84,6 @@
       musicModal.classList.remove("active")
       musicModal.querySelector("audio").src = ""
     })
-
-
 
   </script>
 </body>
