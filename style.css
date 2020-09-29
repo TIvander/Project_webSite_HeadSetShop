@@ -260,3 +260,13 @@ text-decoration: none;
     margin: 0 auto;
     width:40%;
 }
+table {
+    border-radius:  0 0 15px 15px;
+}
+a {
+    color: white;
+}
+a:hover{
+    color: white;
+    text-decoration: none;
+}

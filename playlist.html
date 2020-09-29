@@ -24,6 +24,8 @@
 </head>
 
 <body ng-controller="playListController">
+
+  
   <div class="play_list"></div>
   <ul class="nav justify-content-center nav_menu return">
     <li class="nav-item">
@@ -43,8 +45,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="lineHover"ng-repeat="song in playList">
-              <td>{{song.nome.toUpperCase()}}</td>
+            <tr class="lineHover" ng-repeat="song in playList">
+              <td id="tdClick" data-toggle="modal" data-target=".bd-example-modal-sm" >{{song.nome.toUpperCase()}}</td>
               <td>{{song.compositor}}</td>
               <td>{{song.duration}}</td>
             </tr>
@@ -52,6 +54,15 @@
         </table>
       </div>
     
+      <div style = "margin-top: 252px; "class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <audio controls autoplay>
+              <source src="{{song.id}}" type="audio/mp3">
+            </audio>
+          </div>
+        </div>
+      </div>
   <script type="text/javascript">
       angular.module('playListModule', [])
       .controller("playListController", function($scope){
@@ -68,23 +79,11 @@
 
       })
   </script>
-  <script>
-    const musicLists = document.querySelectorAll(".musicList")
-    const closeModal = document.querySelector('.closeModal')
-    const musicModal = document.querySelector('.musicModal')
-    const a = document.querySelector('.a')
-    for (let musicList of musicLists) {
-      musicList.addEventListener("click", function () {
-        const musicId = musicList.getAttribute("id")
-        musicModal.classList.add('active')
-        musicModal.querySelector("audio").src = `${musicId}`
-      })
-    }
-    closeModal.addEventListener("click", function () {
-      musicModal.classList.remove("active")
-      musicModal.querySelector("audio").src = ""
+  <script type="text/javascript">
+    const  td_click = document.querySelectorAll('#tdClick')
+    td_click.addEventListenner("click", function(){
+     
     })
-
   </script>
 </body>
 
