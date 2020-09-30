@@ -9,7 +9,9 @@ body {
     background: radial-gradient(ellipse at center,rgba(40,140,236,.5) -20%,#152947 20%,#0c1b2d 40%,#000 99%);
     transition: opacity .3s ease-in-out;
 }
-
+table {
+    border-radius: 10px;
+}
 #header_img {
     background-image: url("https://cdn.hipwallpaper.com/i/88/28/BGdE3s.jpg");
     background-position: center;
@@ -138,17 +140,6 @@ hr {
     margin: 0 auto;
 }
 
-/*.containerPlayList .titleColumns {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 45px;
-    color: rgb(113, 6, 122);
-    cursor: default;
-    border: 1px solid var(--color_grid);
-    
-    
-}*/
 .titleColumns {
     color: rgb(0, 119, 255);
 }
@@ -260,13 +251,15 @@ text-decoration: none;
     margin: 0 auto;
     width:40%;
 }
-table {
-    border-radius:  0 0 15px 15px;
+.back_table_color {
+    background-color: rgba(0, 0, 0, 0.562)
 }
-a {
-    color: white;
+
+.back_line_color:hover {
+    background-color: rgba(0, 217, 255, 0.685);
+    transition: 150ms;
 }
-a:hover{
-    color: white;
+#player {
+    color:white;
     text-decoration: none;
 }

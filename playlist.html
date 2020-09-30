@@ -7,25 +7,13 @@
     type="image/x-icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
   <link rel="stylesheet" href="style.css" type="text/css" media="screen">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <title>Play-List</title>
 </head>
 
 <body ng-controller="playListController">
-
-  
   <div class="play_list"></div>
   <ul class="nav justify-content-center nav_menu return">
     <li class="nav-item">
@@ -36,55 +24,63 @@
     </li>
   </ul>
       <div class="container ">
-        <table class="table  table-dark col-md-12">
+        <table class="back_table_color centered card_home">
           <thead>
-            <tr class="titleColumns">             
+            <tr>    
+              <div class="row">         
               <th>Music</th>
               <th>Compositor</th>
               <th>Duration</th>
+              </div>
             </tr>
-          </thead>
-          <tbody>
-            <tr class="lineHover" ng-repeat="song in playList">
-              <td id="tdClick" data-toggle="modal" data-target=".bd-example-modal-sm" >{{song.nome.toUpperCase()}}</td>
-              <td>{{song.compositor}}</td>
-              <td>{{song.duration}}</td>
+           </thead>
+           <tbody>
+            <tr class="back_line_color" ng-repeat="song in playList">
+            
+              <td><a id="player" href="#meu-modal" class="modal-trigger">{{song.nome.toUpperCase()}}</a></td>
+              <td>{{song.compositor}}</td>      
+              <td>{{song.duration}}</a></td>
             </tr>
           </tbody>
-        </table>
-      </div>
-    
-      <div style = "margin-top: 252px; "class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <audio controls autoplay>
-              <source src="{{song.id}}" type="audio/mp3">
-            </audio>
-          </div>
         </div>
+       </table>
       </div>
+      
+        <div class="container">
+          <div id="meu-modal" class="modal bottom-sheet modal-bottom"><audio  controls></audio></div>
+           
+        </audio> </div>
+
+         
+        
+       
+
+  <script src="lib/angular/angular.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript">
       angular.module('playListModule', [])
       .controller("playListController", function($scope){
         $scope.playList = [
           {nome:"CyberPunk Eletronic", id:"https://previews.customer.envatousercontent.com/files/304393014/preview.mp3", compositor:"Action Eletronic Rock", duration:"2:16 min"},
-          {nome:"ArcadeTrap ", id:"https://previews.customer.envatousercontent.com/files/244559989/preview.mp3", compositor:"Audio Jungle", duration:"1:37"},
-          {nome:"Summer Chill Beat", id:"https://previews.customer.envatousercontent.com/files/303003777/preview.mp3", compositor:"AMB Crew", duration:"3:25"},
+          {nome:"ArcadeTrap ", id:"https://previews.customer.envatousercontent.com/files/244559989/preview.mp3", compositor:"Audio Jungle", duration:"1:37 min"},
+          {nome:"Summer Chill Beat", id:"https://previews.customer.envatousercontent.com/files/303003777/preview.mp3", compositor:"AMB Crew", duration:"3:25 min"},
           {nome:"Grand Trap Auto", id:"https://previews.customer.envatousercontent.com/files/132855243/preview.mp3", compositor:"Steeves mix", duration:"4:10 min"},
           {nome:"SportAction Rock Electro", id:"https://previews.customer.envatousercontent.com/files/304426856/preview.mp3", compositor:"Tech Logo I.", duration:"5:49 min"},
           {nome:"Trap SL", id:"https://previews.customer.envatousercontent.com/files/224590107/preview.mp3", compositor:" Extreme Rock", duration:"4:45 min"},
           {nome:"5 Version", id:"https://previews.customer.envatousercontent.com/files/303664662/preview.mp3", compositor:"Action Eletronic Rock", duration:"2:37 min"}       
         ]
-
-
+      
       })
   </script>
-  <script type="text/javascript">
-    const  td_click = document.querySelectorAll('#tdClick')
-    td_click.addEventListenner("click", function(){
-     
-    })
-  </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
 </body>
 
 </html>
